@@ -1,8 +1,11 @@
 export interface Data {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   mobile: string;
-  passengers: [Passenger];
+  age: string;
+  gender: string;
+  passengers?: [Passenger];
 }
 
 export interface Passenger {

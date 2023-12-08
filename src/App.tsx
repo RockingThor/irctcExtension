@@ -6,14 +6,14 @@ import { Data } from "./lib/interfaces";
 
 function App() {
   const [data, setData] = useState<Data | null>(null);
-  chrome.storage.local.get(["irctcData"]).then((result) => {
+  chrome.storage?.local.get(["irctcData"]).then((result) => {
     setData(result.irctcData);
-    if (data) {
-      return <Home {...data} />;
-    } else {
-      return <Register />;
-    }
   });
+  if (data) {
+    return <Home {...data} />;
+  } else {
+    return <Register />;
+  }
 }
 
 export default App;

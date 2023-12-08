@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Automatically fill your data on IRCTC while booking tatkals",
   "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://*.irctc.co.in/*"],
   "action": {
     "default_icon": {},
     "default_title": "Autofill IRCTC",
