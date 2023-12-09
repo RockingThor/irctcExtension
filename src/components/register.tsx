@@ -48,7 +48,7 @@ const Register = () => {
       gender,
     };
     window.localStorage.setItem("irctcData", JSON.stringify(data));
-    return <Home {...data} />;
+    return <Home />;
   }
 
   return (

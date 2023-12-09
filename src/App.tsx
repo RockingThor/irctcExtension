@@ -1,19 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import Home from "./components/home";
-import Register from "./components/register";
-import { Data } from "./lib/interfaces";
+import Initial from "./components/initial";
+import { useRecoilState } from "recoil";
+import { dataState } from "./recoil/atom";
 
 function App() {
-  const [data, setData] = useState<Data | null>(null);
+  const [data, setData] = useRecoilState(dataState);
+  console.log(data);
   chrome.storage?.local.get(["irctcData"]).then((result) => {
     setData(result.irctcData);
   });
-  if (data) {
-    return <Home {...data} />;
-  } else {
-    return <Register />;
-  }
+  return <Initial />;
 }
 
 export default App;
