@@ -10,7 +10,7 @@ export interface Data {
 
 export interface Passenger {
   name: string;
-  age: number;
+  age: string;
   gender: string;
   seatType: string;
 }
