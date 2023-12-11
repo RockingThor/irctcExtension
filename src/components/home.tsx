@@ -5,6 +5,7 @@ import { useRecoilValue } from "recoil";
 import { currentData } from "@/recoil/selector";
 import AddPassenger from "./addPassenger";
 import DisplayPassengers from "./displayPassengers";
+import DisplayTime from "./displayTime";
 
 const Home = () => {
   const data = useRecoilValue(currentData);
@@ -23,6 +24,7 @@ const Home = () => {
             <AddPassenger setIsOpen={setIsOpen} />
           </CollapsibleContent>
         </Collapsible>
+        <DisplayTime />
       </div>
     </div>
   );
