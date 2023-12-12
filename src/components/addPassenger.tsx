@@ -14,7 +14,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useRecoilState } from "recoil";
 import { dataState } from "@/recoil/atom";
-import { Passenger } from "@/lib/interfaces";
+import { Data, Passenger } from "@/lib/interfaces";
 
 interface ChildProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -45,7 +45,21 @@ const AddPassenger = ({ setIsOpen }: ChildProps) => {
       gender: p.gender,
       seatType: p.seatType,
     };
-    data?.passengers?.push(passenger);
+    if (data?.passengers) {
+      data.passengers.push(passenger);
+      setData(data);
+    } else if (data != null) {
+      const newData: Data = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        mobile: data.mobile,
+        age: data.age,
+        gender: data.gender,
+        passengers: [passenger],
+      };
+      setData(newData);
+    }
     chrome.storage.local.set({ irctcData: data }).then(() => {
       setData(data);
       setIsOpen(false);
